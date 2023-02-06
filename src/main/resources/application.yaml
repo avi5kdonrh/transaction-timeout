@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:h2:./target/db/test;AUTO_SERVER=true
+    username: sa
+    password: sa
+  sql:
+    init:
+      mode: ALWAYS
+      schema-locations:
+        - classpath:db/init.sql
+  transaction:
+    rollback-on-commit-failure: true
+    default-timeout: 5
+
+narayana:
+   dbcp:
+    enabled: true
+    defaultTransactionIsolation: READ_COMMITTED
+    initialSize: 10
+    maxTotal: 8
+    maxIdle: 8
+    minIdle: 0
+    maxWaitMillis: -1
+    validationQuery: SELECT 1
+    testOnCreate: false
+    testOnBorrow: true
+    testOnReturn: false
+    testWhileIdle: false
+    timeBetweenEvictionRunsMillis: -1
+    numTestsPerEvictionRun: 3
+    minEvictableIdleTimeMillis: 1800000
+    softMinEvictableIdleTimeMillis: -1
+    maxConnLifetimeMillis: -1
+    logExpiredConnections: true
+    connectionInitSqls: null
+    lifo: true
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 10
+    accessToUnderlyingConnectionAllowed: false
+    removeAbandonedOnMaintenance: false
+    removeAbandonedOnBorrow: false
+    removeAbandonedTimeout: 300
+    logAbandoned: false
+    abandonedUsageTracking: false
+    fastFailValidation: true
+    disconnectionSqlCodes: null
+
