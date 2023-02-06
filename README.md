@@ -1,8 +1,10 @@
 ### Narayana + DBCP2
 If poolPreparedStatements is set to true and a transaction times out, the application throws a stackoverflow error when executing the next preparedStatement
 
-`
-2023-02-06 19:19:31.380 ERROR 66997 --- [o-auto-1-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.StackOverflowError] with root cause
+```
+2023-02-06 19:19:31.380 ERROR 66997 --- [o-auto-1-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() 
+for servlet [dispatcherServlet] in context with path [] threw exception
+[Handler dispatch failed; nested exception is java.lang.StackOverflowError] with root cause
 
 java.lang.StackOverflowError: null
 at java.base/java.lang.StringBuilder.<init>(StringBuilder.java:103) ~[na:na]
@@ -25,7 +27,7 @@ at org.apache.commons.dbcp2.DelegatingConnection.checkOpen(DelegatingConnection.
 at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:298) ~[commons-dbcp2-2.8.0.jar:2.8.0]
 at org.apache.commons.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:301) ~[commons-dbcp2-2.8.0.jar:2.8.0]
 at org.test.DBController.insertOperation(DBController.java:37) ~[classes/:na]
-`
+```
 
 ### To reproduce the issue
 
